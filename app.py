@@ -7,5 +7,10 @@ import os
 # print(data)
 
 directory = r'test-data-input'
-for entry in os.scandir(directory):
-    print(entry.name)
+
+for subdir, dirs, files in os.walk(directory):
+    for filename in files:
+        filepath = subdir + os.sep + filename
+
+        if filepath.endswith(".json"):
+            print (filepath)
