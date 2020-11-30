@@ -6,6 +6,10 @@ import os
 
 # print(data)
 
+def load_json(file):
+    with open(file) as file:
+        return json.load(file)
+
 directory = r'test-data-input'
 
 for subdir, dirs, files in os.walk(directory):
@@ -13,4 +17,6 @@ for subdir, dirs, files in os.walk(directory):
         filepath = subdir + os.sep + filename
 
         if filepath.endswith(".json"):
-            print (filepath)
+            # print (filepath)
+            data = load_json(filepath)
+            print(data)
