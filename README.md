@@ -1,6 +1,6 @@
 # JSON Tool
-[![Actions Status: CI](https://github.com/jaketclarke/json-modify/workflows/CI/badge.svg)](https://github.com/jaketclarke/json-modify/actions?query=workflow%3A"CI")
 
+[![Actions Status: CI](https://github.com/jaketclarke/json-modify/workflows/CI/badge.svg)](https://github.com/jaketclarke/json-modify/actions?query=workflow%3A"CI")
 
 Simple tool to bulk add a property to all .json files in a directory structure.
 
@@ -22,14 +22,9 @@ Simple tool to bulk add a property to all .json files in a directory structure.
 
 Fake data courtesy: <https://jsonplaceholder.typicode.com/>
 
-Setup from: <https://hackernoon.com/reaching-python-development-nirvana-bb5692adf30c>
-
-and https://dev.to/py3course/setting-up-a-python-environment-in-2020-3e9e
+Setup from: <https://hackernoon.com/reaching-python-development-nirvana-bb5692adf30c>, https://dev.to/py3course/setting-up-a-python-environment-in-2020-3e9e
 
 Gitignore: <https://github.com/github/gitignore/blob/master/Python.gitignore>
 
-Tests influenced by: <https://semaphoreci.com/community/tutorials/testing-python-aapplications-with-pytest>
-
-## Todo
-
+Tests influenced by: <https://semaphoreci.com/community/tutorials/testing-python-aapplications-with-pytest>,
 <https://tryexceptpass.org/article/pytest-github-integration/>
