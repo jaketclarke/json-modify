@@ -13,9 +13,11 @@ def dump_json(data, outfilepath):
 def strip_parent_directory(subdir):
     # where should we write to?
     # get the full path without the parent folder (so we can output somewhere other than we input)
-    # so right of the first slash
-    datalength = len(subdir) - subdir.find('/') - 1
-    outpath = subdir[-datalength:]
+    if '/' in subdir:
+        datalength = len(subdir) - subdir.find('/') - 1
+        outpath = subdir[-datalength:]
+    else:
+        outpath = None
     return outpath
 
 def make_directorytree_if_not_exists(path):
@@ -29,19 +31,24 @@ value = 'bar'
 
 for subdir, dirs, files in os.walk(directoryinput):
     for filename in files:
-        # where is the file
+        # input file
         filepath = subdir + os.sep + filename
         
+        # output details
         outpath = strip_parent_directory(subdir)
-        # combine with output dir and os separator
-        outfolderpath = directoryoutput + os.sep + outpath
+        print(subdir)
+        print(outpath)
+        if outpath:
+            outfolderpath = directoryoutput + os.sep + outpath
+        else:
+            outfolderpath = directoryoutput
         outfilepath = outfolderpath + os.sep + filename
         
+        # # print(filepath)
         # print(filepath)
-        print(filepath)
-        print(outfolderpath)
-        print(outfilepath)
-        # 
+        # print(outfolderpath)
+        # print(outfilepath)
+        # # 
 
         if filepath.endswith(".json"):
             # read data
