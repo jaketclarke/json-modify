@@ -6,6 +6,10 @@ def load_json(file):
     with open(file) as file:
         return json.load(file)
 
+def dump_json(data, outfilepath):
+    with open(outfilepath, 'w') as outfile:
+                json.dump(data, outfile)
+
 def strip_parent_directory(subdir):
     # where should we write to?
     # get the full path without the parent folder (so we can output somewhere other than we input)
@@ -46,7 +50,5 @@ for subdir, dirs, files in os.walk(directoryinput):
             data[key] = value
             # check output path exists
             make_directorytree_if_not_exists(outfolderpath)
-
-            
-            # with open(outfilepath, 'w') as outfile:
-            #     json.dump(data, outfile)
+            # make file
+            dump_json(data, outfilepath)
