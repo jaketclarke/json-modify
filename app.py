@@ -1,5 +1,9 @@
+# libraries
 import json
 import os
+import argparse
+
+# helpers
 
 def load_json(file):
     # load the json and return a dict
@@ -23,11 +27,26 @@ def strip_parent_directory(subdir):
 def make_directorytree_if_not_exists(path):
     if not os.path.exists(path):
         os.makedirs(path)
+        
+# parameters
 
-directoryinput = r'test-data-input'
-directoryoutput = r'output'
-key = 'foo'
-value = 'bar'
+parser = argparse.ArgumentParser(description='A simple console app to add a key/value pair to every JSON file in a directory tree')
+required = parser.add_argument_group('required arguments')
+parser.add_argument('--input-dir', default='test-data-input', dest='inputdir', type=str, help='Directory to read JSON files from')
+parser.add_argument('--output-dir', default='output', dest='outputdir', type=str, help='Directory to save JSON files to')
+required.add_argument('--key', dest='key', type=str, help='Key to add to the JSON')
+required.add_argument('--value', dest='value', type=str, help='Value to add to the JSON')
+
+args = parser.parse_args()
+print(args.inputdir)
+print(args.outputdir)
+print(args.key)
+print(args.value)
+
+directoryinput = args.inputdir
+directoryoutput = args.outputdir
+key = args.key
+value = args.value
 
 for subdir, dirs, files in os.walk(directoryinput):
     for filename in files:
