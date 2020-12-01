@@ -1,4 +1,5 @@
-# JSON Tool [![Actions Status: CI](https://github.com/jaketclarke/json-modify/workflows/CI/badge.svg)](https://github.com/jaketclarke/json-modify/actions?query=workflow%3A"CI")
+# JSON Tool
+[![Actions Status: CI](https://github.com/jaketclarke/json-modify/workflows/CI/badge.svg)](https://github.com/jaketclarke/json-modify/actions?query=workflow%3A"CI")
 
 
 Simple tool to bulk add a property to all .json files in a directory structure.
