@@ -19,9 +19,6 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: [3.8]
            
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -32,18 +29,18 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
       
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
+      - name: Setup Python
+        uses: actions/setup-python@v1
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: 3.8.0
 
       - name: Install pip & pipenv
         run: |
           python -m pip install --upgrade pip
           pip install pipenv
-          
-      - name: Pipenv shell
-        run: pipenv shell
+     
+      - name: Install dependencies
+        run:  pipenv install --deploy --dev
       
       - name: Test with pytest
         run: |
