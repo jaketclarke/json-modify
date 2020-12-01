@@ -36,19 +36,11 @@ for subdir, dirs, files in os.walk(directoryinput):
         
         # output details
         outpath = strip_parent_directory(subdir)
-        print(subdir)
-        print(outpath)
         if outpath:
             outfolderpath = directoryoutput + os.sep + outpath
         else:
             outfolderpath = directoryoutput
         outfilepath = outfolderpath + os.sep + filename
-        
-        # # print(filepath)
-        # print(filepath)
-        # print(outfolderpath)
-        # print(outfilepath)
-        # # 
 
         if filepath.endswith(".json"):
             # read data
