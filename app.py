@@ -2,9 +2,17 @@ import json
 import os
 
 def load_json(file):
+    # load the json and return a dict
     with open(file) as file:
         return json.load(file)
-    
+
+def strip_parent_directory(subdir):
+    # where should we write to?
+    # get the full path without the parent folder (so we can output somewhere other than we input)
+    # so right of the first slash
+    datalength = len(subdir) - subdir.find('/') - 1
+    outpath = subdir[-datalength:]
+    return outpath
 
 directoryinput = r'test-data-input'
 directoryoutput = r'output'
@@ -16,11 +24,7 @@ for subdir, dirs, files in os.walk(directoryinput):
         # where is the file
         filepath = subdir + os.sep + filename
         
-        # where should we write to?
-        # get the full path without the parent folder (so we can output somewhere other than we input)
-        # so right of the first slash
-        datalength = len(subdir) - subdir.find('/') - 1
-        outpath = subdir[-datalength:]
+        outpath = strip_parent_directory(subdir)
         # combine with output dir and os separator
         outfolderpath = directoryoutput + os.sep + outpath
         outfilepath = outfolderpath + os.sep + filename
