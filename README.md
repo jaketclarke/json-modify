@@ -27,3 +27,7 @@ and https://dev.to/py3course/setting-up-a-python-environment-in-2020-3e9e
 Gitignore: <https://github.com/github/gitignore/blob/master/Python.gitignore>
 
 Tests influenced by: <https://semaphoreci.com/community/tutorials/testing-python-aapplications-with-pytest>
+
+## Todo
+
+<https://tryexceptpass.org/article/pytest-github-integration/>

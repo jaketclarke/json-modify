@@ -6,5 +6,5 @@ def test_strip_parent_dir():
     assert result == 'two/three'
 
 def test_strip_parent_dir_one_level():
-    result = strip_parent_directory('one')
-    assert result == None
+    result = strip_parent_directory('onesssss')
+    assert result is None
