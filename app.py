@@ -14,6 +14,10 @@ def strip_parent_directory(subdir):
     outpath = subdir[-datalength:]
     return outpath
 
+def make_directorytree_if_not_exists(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
 directoryinput = r'test-data-input'
 directoryoutput = r'output'
 key = 'foo'
@@ -40,12 +44,9 @@ for subdir, dirs, files in os.walk(directoryinput):
             data = load_json(filepath)
             # append new key
             data[key] = value
-            # print(data)
-            # write to output
-            
-            # # ensure folder exists
-            # if not os.path.exists('my_folder'):
-            #     os.makedirs('my_folder')
+            # check output path exists
+            make_directorytree_if_not_exists(outfolderpath)
+
             
             # with open(outfilepath, 'w') as outfile:
             #     json.dump(data, outfile)
