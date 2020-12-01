@@ -44,4 +44,4 @@ jobs:
       
       - name: Test with pytest
         run: |
-          pipenv run pytest tests.py
+          pipenv run pytest -v tests.py
