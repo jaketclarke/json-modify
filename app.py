@@ -2,6 +2,7 @@
 import json
 import os
 import argparse
+import sys
 
 # helpers
 
@@ -38,10 +39,17 @@ required.add_argument('--key', dest='key', type=str, help='Key to add to the JSO
 required.add_argument('--value', dest='value', type=str, help='Value to add to the JSON')
 
 args = parser.parse_args()
-print(args.inputdir)
-print(args.outputdir)
-print(args.key)
-print(args.value)
+
+if not args.key:
+    print("\r\n")
+    print("Please specify the key you wish to add to the JSON")
+    parser.print_help()
+    sys.exit(2)
+
+if not args.value:
+    print("Please specify the value you wish to add to the JSON")
+    parser.print_help()
+    sys.exit(2)
 
 directoryinput = args.inputdir
 directoryoutput = args.outputdir
