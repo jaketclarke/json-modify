@@ -13,11 +13,12 @@ Simple tool to bulk add a property to all .json files in a directory structure.
 - clone the repo
 - ensure you have pipenv installed
 - run `pipenv shell` to get a shell in a virtual environment
-- run the app with `pipenv run python app.py`
+- run the app with `pipenv run python app.py --help`
+- to add `{"foo":"bar"}` to input json, run with `pipenv run python app.py --key foo --value bar`
 
 ## Ackowledgements
 
-Fake data curtoesy: <https://jsonplaceholder.typicode.com/>
+Fake data courtesy: <https://jsonplaceholder.typicode.com/>
 
 Setup from: <https://hackernoon.com/reaching-python-development-nirvana-bb5692adf30c>
 
