@@ -29,8 +29,7 @@ def make_directorytree_if_not_exists(path):
     if not os.path.exists(path):
         os.makedirs(path)
         
-# parameters
-
+# set up console interface
 parser = argparse.ArgumentParser(description='A simple console app to add a key/value pair to every JSON file in a directory tree')
 required = parser.add_argument_group('required arguments')
 parser.add_argument('--input-dir', default='test-data-input', dest='inputdir', type=str, help='Directory to read JSON files from')
@@ -40,6 +39,7 @@ required.add_argument('--value', dest='value', type=str, help='Value to add to t
 
 args = parser.parse_args()
 
+# fail if mandatory pars misssing
 if not args.key:
     print("\r\n")
     print("Please specify the key you wish to add to the JSON")
@@ -51,6 +51,7 @@ if not args.value:
     parser.print_help()
     sys.exit(2)
 
+# set values
 directoryinput = args.inputdir
 directoryoutput = args.outputdir
 key = args.key
